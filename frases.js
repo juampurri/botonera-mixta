@@ -22,6 +22,10 @@ const frases = [
   { texto: "La sabias hijo de puta..", audio: "sonidos/20-LaSabiasHDP.mp3" },
   { texto: "La sabias hijo de puta 2", audio: "sonidos/21-LaSabiasHDP2.mp3" },
   { texto: "Estaba en 4 garcada en fugazzeta", audio: "sonidos/22-EstabaGarcada.mp3" },
+  { texto: "Nunca te tiré un lance hermana", audio: "sonidos/23-NuncaTeTireUnLance.mp3" },
+  { texto: "Porque tener ese culo", audio: "sonidos/24-PorQueTenerEseCulo.mp3" },
+  { texto: "Hay que ser un buda", audio: "sonidos/24-UnBuda.mp3" },
+  { texto: "Tres minas que llegaron", audio: "sonidos/25-TresMinasQueLlegaron.mp3" },
   { texto: "Granata denuncia", audio: "sonidos/yapa-GranataDenuncia.mp3" },
   { texto: "Tomar leche", audio: "sonidos/Yapa2-TomarLeche.mp3" }
   
