@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botonera papu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Ustedes son muy tramposos</h1>
+
+  <img class="pic" src="img/jorgitoImg1.jpg" alt=""> 
+
+  <div class="grid" id="grid"></div>
+
+  <div class="estado" id="estado">Listo.</div>
+  <div class="controles">
+    <button id="parar">Detener voz</button>
+  </div>
+  <script src="frases.js"></script>
+  <script> 
+  const grid = document.getElementById('grid');
+  const estado = document.getElementById('estado');
+  const botones = [];
+  
+  const reproductor = new Audio();
+  function reproducir(i) {
+    botones.forEach(b => b.classList.remove('activa'));
+    botones[i].classList.add('activa');
+    const frase = frases[i];
+    estado.textContent = frase.texto;
+    reproductor.pause();          // para lo que esté sonando
+    reproductor.src = frase.audio; // cargamos el sonido de este botón
+    reproductor.currentTime = 0;
+    reproductor.play();
+    reproductor.onended = () => botones[i].classList.remove('activa');
+  }
+  // Crear un botón por cada frase
+  frases.forEach((frase, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'frase';
+    btn.innerHTML = `<span class="num">BOTÓN ${i + 1}</span><span class="texto"></span>`;
+    btn.querySelector('.texto').textContent = frase.texto;
+    btn.addEventListener('click', () => reproducir(i));
+    grid.appendChild(btn);
+    botones.push(btn);
+  });
+  // Botón para pauasr el audio
+  document.getElementById('parar').addEventListener('click', () => {
+    reproductor.pause();
+    botones.forEach(b => b.classList.remove('activa'));
+    estado.textContent = 'Voz detenida.';
+  });
+</script>
+</body>
+</html>

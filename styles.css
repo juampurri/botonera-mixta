@@ -1,0 +1,121 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(135deg, #318791, #1a49b6);
+  color: #9bdc31;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+h1 { margin: 0 0 0.25rem; font-size: 2rem; }
+.pic {
+  border-radius: 1rem;
+  max-width: 180px; /* Tamaño ajustado para la imagen */
+  height: auto;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  
+}
+p.sub { margin: 0 0 2rem; color: #55df16; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 960px;
+}
+
+button.frase {
+  background: #0d6d4b;
+  border: 2px solid #0d3b7b;
+  color: #f1f5f9;
+  border-radius: 14px;
+  padding: 1.25rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  min-height: 110px;
+  transition: transform 0.1s, border-color 0.2s, background 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  /* Evita que el celular haga zoom o demore el click al tocar rápido */
+  touch-action: manipulation; 
+  -webkit-tap-highlight-color: transparent; /* Quita el recuadro gris feo al tocar en Android/iPhone */
+  user-select: none; /* Evita que se seleccione el texto si mantenés apretado */
+}
+
+button.frase:hover { border-color: #818cf8; background: #273449; }
+button.frase:active { transform: scale(0.97); }
+
+button.frase.activa {
+  border-color: #f472b6;
+  background: #3b1d3f;
+  box-shadow: 0 0 18px rgba(244,114,182,0.5);
+}
+
+.num {
+  display: block;
+  font-size: 0.75rem;
+  color: #818cf8;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.texto { font-size: 1.05rem; line-height: 1.35; }
+
+.estado {
+  margin-top: 2rem;
+  min-height: 1.5rem;
+  color: #cbd5e1;
+  font-style: italic;
+}
+
+.controles { margin-top: 1rem; }
+
+.controles button {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #475569;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.controles button:hover { color: #f8fafc; border-color: #818cf8; }
+
+/* jquery celu) */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem 0.5rem; /* Menos espacio alrededor para aprovechar la pantalla */
+  }
+
+  h1 {
+    font-size: 1.5rem; 
+    text-align: center;
+  }
+
+  .grid {
+    /* Ajusta la grilla para que entren 2 columnas cómodas en celulares chicos */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.6rem;
+  }
+
+  button.frase {
+    min-height: 85px; /* Botones algo más compactos */
+    padding: 0.8rem 0.6rem;
+  }
+
+  .num {
+    font-size: 0.65rem;
+  }
+
+  .texto {
+    font-size: 0.9rem;
+  }
+}
